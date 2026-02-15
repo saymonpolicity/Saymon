@@ -1,9 +1,14 @@
 local UserInputService = game:GetService("UserInputService")
 
-local isMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
+print("=== Device Detection ===")
+print("TouchEnabled: " .. tostring(UserInputService.TouchEnabled))
+print("KeyboardEnabled: " .. tostring(UserInputService.KeyboardEnabled))
+print("MouseEnabled: " .. tostring(UserInputService.MouseEnabled))
 
-if isMobile then
+if UserInputService.TouchEnabled then
+    print("Loading MOBILE version...")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/saymonbruh123/Saymon/main/isaacsMinesweeperMb"))()
 else
+    print("Loading PC version...")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/saymonbruh123/Saymon/main/isaacsMinesweeper"))()
 end
